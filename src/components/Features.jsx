@@ -57,7 +57,7 @@ const Features = () => {
     return (
         <section id="platform" className="py-20 bg-black relative z-10">
             <div className="max-w-7xl mx-auto px-6 mb-16">
-                <h2 className="text-4xl md:text-5xl font-light text-white text-center mb-4 tracking-tight">
+                <h2 className="text-4xl md:text-5xl font-display font-light text-white text-center mb-4 tracking-tight">
                     COMPREHENSIVE <span className="text-gray-500">AI-DRIVEN</span> INTELLIGENCE <span className="font-normal">PLATFORM</span>
                 </h2>
                 <p className="text-xl text-white/70 text-center max-w-3xl mx-auto">

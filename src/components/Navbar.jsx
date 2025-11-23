@@ -19,6 +19,7 @@ const Navbar = () => {
                             <Link to="/team" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Our Team</Link>
                             <Link to="/careers" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Careers</Link>
                             <Link to="/contact" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Contact</Link>
+                            <Link to="/demo" className="bg-white text-black hover:bg-gray-200 px-4 py-2 rounded-none text-sm font-bold transition-colors">REQUEST A DEMO</Link>
                         </div>
                     </div>
                     <div className="-mr-2 flex md:hidden">
@@ -39,6 +40,7 @@ const Navbar = () => {
                         <Link to="/team" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium" onClick={() => setIsOpen(false)}>Our Team</Link>
                         <Link to="/careers" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium" onClick={() => setIsOpen(false)}>Careers</Link>
                         <Link to="/contact" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium" onClick={() => setIsOpen(false)}>Contact</Link>
+                        <Link to="/demo" className="bg-white text-black hover:bg-gray-200 block px-3 py-2 rounded-md text-base font-bold mt-4 text-center" onClick={() => setIsOpen(false)}>REQUEST A DEMO</Link>
                     </div>
                 </div>
             )}

@@ -14,7 +14,8 @@ export default {
                 'tech-gray': '#2a2a2a',
             },
             fontFamily: {
-                sans: ['Inter', 'Roboto', 'sans-serif'],
+                sans: ['Inter', 'sans-serif'],
+                display: ['Space Grotesk', 'sans-serif'],
                 mono: ['JetBrains Mono', 'monospace'],
             },
             animation: {

@@ -16,7 +16,7 @@ const Thanks = () => {
                         <CheckCircle size={80} className="text-white" strokeWidth={1} />
                     </div>
 
-                    <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-6">
+                    <h1 className="text-5xl md:text-7xl font-display font-bold tracking-tight text-white mb-6">
                         THANK YOU
                     </h1>
 

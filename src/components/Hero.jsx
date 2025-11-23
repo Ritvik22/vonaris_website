@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
 const Hero = () => {
@@ -19,10 +20,10 @@ const Hero = () => {
                                     <stop offset="100%" stopColor="#6b7280" />
                                 </linearGradient>
                             </defs>
-                            <text x="50%" y="45%" textAnchor="middle" className="text-5xl md:text-7xl font-bold tracking-tight fill-transparent stroke-white stroke-1 animate-text-stroke">
+                            <text x="50%" y="45%" textAnchor="middle" className="text-5xl md:text-7xl font-display font-bold tracking-tight fill-transparent stroke-white stroke-1 animate-text-stroke">
                                 TRANSFORM DATA INTO
                             </text>
-                            <text x="50%" y="90%" textAnchor="middle" className="text-5xl md:text-7xl font-bold tracking-tight fill-transparent stroke-[url(#gradient)] stroke-1 animate-text-stroke-delay">
+                            <text x="50%" y="90%" textAnchor="middle" className="text-5xl md:text-7xl font-display font-bold tracking-tight fill-transparent stroke-[url(#gradient)] stroke-1 animate-text-stroke-delay">
                                 STRATEGIC INTELLIGENCE
                             </text>
                         </svg>
@@ -32,14 +33,14 @@ const Hero = () => {
                         Comprehensive analysis, anomaly detection, and automated compliance monitoring.
                     </p>
                     <div className="flex justify-center gap-4">
-                        <button className="group relative px-8 py-3 bg-white text-black font-semibold rounded-none overflow-hidden transition-all hover:bg-gray-200">
+                        <Link to="/demo" className="group relative px-8 py-3 bg-white text-black font-semibold rounded-none overflow-hidden transition-all hover:bg-gray-200 inline-flex items-center">
                             <span className="relative z-10 flex items-center gap-2">
                                 REQUEST A DEMO <ArrowRight size={18} />
                             </span>
-                        </button>
-                        <button className="px-8 py-3 border border-white/20 text-white font-semibold hover:bg-white/5 transition-colors">
+                        </Link>
+                        <Link to="/products" className="px-8 py-3 border border-white/20 text-white font-semibold hover:bg-white/5 transition-colors inline-flex items-center">
                             LEARN MORE
-                        </button>
+                        </Link>
                     </div>
                 </motion.div>
             </div>

@@ -1,8 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import InteractiveGrid from '../components/InteractiveGrid';
-import { Target, Database, TrendingUp, Network, BarChart3, Shield, Zap, CheckCircle } from 'lucide-react';
+import { Target, Database, TrendingUp, Network, BarChart3, Shield, Zap, CheckCircle, ArrowRight } from 'lucide-react';
 
 const Products = () => {
     const coreCapabilities = [
@@ -87,15 +88,19 @@ const Products = () => {
                             transition={{ duration: 0.8 }}
                             className="text-center mb-16"
                         >
-                            <h1 className="text-6xl md:text-8xl font-bold tracking-tight text-white mb-6">
+                            <h1 className="text-6xl md:text-8xl font-display font-bold tracking-tight text-white mb-6">
                                 CRAIM
                             </h1>
                             <p className="text-2xl md:text-3xl text-gray-400 font-light mb-8">
                                 Corporate Revenue AI Model
                             </p>
-                            <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+                            <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-10">
                                 An AI-driven corporate revenue intelligence system designed to help government institutions identify under-reported tax liabilities, detect systemic leakage patterns, and generate high-confidence compliance insights in real time.
                             </p>
+
+                            <Link to="/demo" className="inline-flex items-center gap-2 bg-white text-black font-bold px-8 py-4 hover:bg-gray-200 transition-colors">
+                                REQUEST A DEMO <ArrowRight size={20} />
+                            </Link>
                         </motion.div>
 
                         {/* Technical Overview */}
@@ -124,7 +129,7 @@ const Products = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
-                            className="text-4xl md:text-5xl font-bold text-white mb-16 text-center"
+                            className="text-4xl md:text-5xl font-display font-bold text-white mb-16 text-center"
                         >
                             CORE CAPABILITIES
                         </motion.h2>
@@ -165,7 +170,7 @@ const Products = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
-                            className="text-4xl md:text-5xl font-bold text-white mb-16 text-center"
+                            className="text-4xl md:text-5xl font-display font-bold text-white mb-16 text-center"
                         >
                             VALUE FOR GOVERNMENT AGENCIES
                         </motion.h2>
