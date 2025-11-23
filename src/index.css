@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@theme {
+  --color-obsidian: #0a0a0a;
+  --color-charcoal: #121212;
+  --color-slate: #1e1e1e;
+  --color-off-white: #f5f5f5;
+  --color-tech-gray: #2a2a2a;
+
+  --font-sans: Inter, Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-text-stroke: textStroke 3s ease-in-out forwards;
+  --animate-text-stroke-delay: textStroke 3s ease-in-out 1s forwards;
+
+  @keyframes textStroke {
+    0% {
+      stroke-dasharray: 0 50%;
+      stroke-dashoffset: 20%;
+      fill: transparent;
+    }
+
+    100% {
+      stroke-dasharray: 50% 0;
+      stroke-dashoffset: -20%;
+      fill: rgba(255, 255, 255, 1);
+    }
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-obsidian text-off-white font-sans antialiased overflow-x-hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply tracking-tight;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
+  }
+
+  .tech-border {
+    @apply border border-white/10 relative;
+  }
+
+  .tech-border::before {
+    content: '';
+    @apply absolute top-0 left-0 w-2 h-2 border-t border-l border-white/30;
+  }
+
+  .tech-border::after {
+    content: '';
+    @apply absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/30;
+  }
+}
