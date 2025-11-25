@@ -3,7 +3,55 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
+const Typewriter = ({ text, delay = 0, onComplete, hideCursor = false }) => {
+    const [displayText, setDisplayText] = React.useState('');
+    const [showCursor, setShowCursor] = React.useState(true);
+    const hasCompletedRef = React.useRef(false);
+
+    React.useEffect(() => {
+        if (hasCompletedRef.current) return;
+
+        const timeout = setTimeout(() => {
+            let currentIndex = 0;
+            const interval = setInterval(() => {
+                if (currentIndex <= text.length) {
+                    setDisplayText(text.slice(0, currentIndex));
+                    currentIndex++;
+                } else {
+                    clearInterval(interval);
+                    hasCompletedRef.current = true;
+                    if (onComplete) onComplete();
+                }
+            }, 50); // Typing speed
+
+            return () => clearInterval(interval);
+        }, delay);
+
+        return () => clearTimeout(timeout);
+    }, [text, delay, onComplete]);
+
+    React.useEffect(() => {
+        const cursorInterval = setInterval(() => {
+            setShowCursor(prev => !prev);
+        }, 530);
+        return () => clearInterval(cursorInterval);
+    }, []);
+
+    return (
+        <span className="inline-block">
+            {displayText}
+            <span className={`${!hideCursor && showCursor ? 'opacity-100' : 'opacity-0'} text-white ml-1 transition-opacity duration-100`}>|</span>
+        </span>
+    );
+};
+
 const Hero = () => {
+    const [firstLineDone, setFirstLineDone] = React.useState(false);
+
+    const handleFirstLineComplete = React.useCallback(() => {
+        setFirstLineDone(true);
+    }, []);
+
     return (
         <section className="relative z-10 h-screen flex items-center justify-center overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -12,22 +60,25 @@ const Hero = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                 >
-                    <div className="mb-6 relative w-full max-w-5xl mx-auto">
-                        <svg className="w-full h-auto" viewBox="0 0 1000 180">
-                            <defs>
-                                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                                    <stop offset="0%" stopColor="white" />
-                                    <stop offset="100%" stopColor="#6b7280" />
-                                </linearGradient>
-                            </defs>
-                            <text x="50%" y="45%" textAnchor="middle" className="text-5xl md:text-7xl font-display font-bold tracking-tight fill-transparent stroke-white stroke-1 animate-text-stroke">
-                                TRANSFORM DATA INTO
-                            </text>
-                            <text x="50%" y="90%" textAnchor="middle" className="text-5xl md:text-7xl font-display font-bold tracking-tight fill-transparent stroke-[url(#gradient)] stroke-1 animate-text-stroke-delay">
-                                STRATEGIC INTELLIGENCE
-                            </text>
-                        </svg>
+                    <div className="mb-12 relative w-full max-w-5xl mx-auto flex flex-col items-center gap-4 min-h-[160px]">
+                        <h1 className="text-5xl md:text-7xl font-display font-bold tracking-tight text-white">
+                            <Typewriter
+                                text="TRANSFORM DATA INTO"
+                                delay={500}
+                                onComplete={handleFirstLineComplete}
+                                hideCursor={firstLineDone}
+                            />
+                        </h1>
+                        <h1 className="text-5xl md:text-7xl font-display font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">
+                            {firstLineDone && (
+                                <Typewriter
+                                    text="STRATEGIC INTELLIGENCE"
+                                    delay={0}
+                                />
+                            )}
+                        </h1>
                     </div>
+
                     <p className="mt-4 text-xl text-gray-400 max-w-3xl mx-auto mb-10">
                         Advanced intelligence platform for government agencies and enterprises.
                         Comprehensive analysis, anomaly detection, and automated compliance monitoring.
